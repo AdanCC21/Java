@@ -1,16 +1,17 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Account extends Bank{
     int id;
     int balance;
 
-    // date of last transaction
-    int day=0;
-    int month=0;
-    int year=0;
+    String date_of_last_transaction;
 
     // Constructor
     public Account(int id, int balance){
         this.id = id;
         this.balance = balance;
+        this.date_of_last_transaction="Without transaction";
     }
 
     // Deposit
@@ -32,6 +33,10 @@ public class Account extends Bank{
     public void transfer(Account target, int amount){
         if(this.balance >= amount){
             target.deposit(amount);
+            this.balance-=amount;
+            LocalDateTime temp_date = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            this.date_of_last_transaction = temp_date.format(formatter);
         }else{
             System.out.println("Fondos insuficiente");
         }
@@ -39,7 +44,7 @@ public class Account extends Bank{
 
     public void print(){
         System.out.println("Id : "+this.id+" Balance : "+this.balance);
-        System.out.println("Last transaction "+this.day + this.month + this.year);
+        System.out.println("Last transaction "+this.date_of_last_transaction);
     }
 
 }
