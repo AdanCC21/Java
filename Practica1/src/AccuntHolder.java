@@ -1,7 +1,13 @@
-public class AccuntHolder {
+public class AccuntHolder extends Bank{
     int id;
     String name;
     String curp;
+
+    public AccuntHolder(int id, String name, String curp){
+        this.id = id;
+        this.name = name;
+        this.curp = curp;
+    }
 
     public int getId() {
         return id;
@@ -14,4 +20,10 @@ public class AccuntHolder {
     public String getCurp() {
         return curp;
     }
+
+    public void print(){
+        System.out.println("Id : "+this.id+ " Name : "+this.name + " Curp : "+this.curp);
+
+    }
+
 }
