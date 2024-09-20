@@ -7,11 +7,20 @@ public class Account extends Bank{
 
     String date_of_last_transaction;
 
+
+
     // Constructor
     public Account(int id, int balance){
         this.id = id;
         this.balance = balance;
-        this.date_of_last_transaction="Without transaction";
+        this.date_of_last_transaction="Without any transaction";
+    }
+
+    // Constructor
+    public Account(){
+        this.id = -1;
+        this.balance = -1;
+        this.date_of_last_transaction="Without any transaction";
     }
 
     // Deposit
@@ -31,6 +40,7 @@ public class Account extends Bank{
 
     //Trasnferir
     public void transfer(Account target, int amount){
+
         if(this.balance >= amount){
             target.deposit(amount);
             this.balance-=amount;
@@ -40,11 +50,6 @@ public class Account extends Bank{
         }else{
             System.out.println("Fondos insuficiente");
         }
-    }
-
-    public void print(){
-        System.out.println("Id : "+this.id+" Balance : "+this.balance);
-        System.out.println("Last transaction "+this.date_of_last_transaction);
     }
 
 }

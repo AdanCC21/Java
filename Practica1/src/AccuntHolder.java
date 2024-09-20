@@ -20,12 +20,4 @@ public class AccuntHolder extends Bank{
     public String getCurp() {
         return curp;
     }
-
-    public void print(){
-        System.out.println("Id : "+this.id+ " Name : "+this.name + " Curp : "+this.curp);
-    }
-    public void printReport(){
-        System.out.println("Id : "+this.id+ " Name : "+this.name + " Curp : "+this.curp);
-    }
-
 }
