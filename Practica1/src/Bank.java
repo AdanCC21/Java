@@ -18,7 +18,7 @@ public class Bank {
     }
 
     public void createAccount(int id, int balance){
-        Account tempAccount = new Account(id,balance);
+        Account tempAccount = new CheckingAccount(id,balance);
         acc_cont.add(tempAccount);
 
     }
